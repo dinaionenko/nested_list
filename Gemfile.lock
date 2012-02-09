@@ -1,0 +1,16 @@
+PATH
+  remote: .
+  specs:
+    nested_list (0.0.1)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    rake (0.9.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  nested_list!
+  rake (= 0.9.2)
