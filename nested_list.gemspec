@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Dina Zhyliaieva"]
   s.email       = ["din.chick@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{A Nested list is library that allow to generate a set of options to use it simple select element.}
-  s.description = %q{A Nested list is library that allow to generate a set of options to use it simple select element. The options are generated in such way that you can get nested drop-down list  saved system style just  using simple <select/> element.}
+  s.summary     = %q{A Nested list is library that allow to generate a set of options to use it in simple select element.}
+  s.description = %q{A Nested list is library that allow to generate a set of options to use it in simple select element. The options are generated in such way that you can get nested drop-down list  saved system style just  using simple <select/> element. Run rake nested_list_html_page to generate html page as example.}
 
   s.rubyforge_project = "nested_list"
 
