@@ -36,7 +36,7 @@ Pass it as a parameter and get options for drop down as an output
 
 As a result you will see a drop down like this:
 
-![generated drop down](http://imgur.com/OylKc)
+![generated drop down][http://imgur.com/OylKc]
 
 Contributing
 ============
