@@ -12,17 +12,13 @@ module NestedSelect
     def spaces
       space = ""
       if @@use_spaces
-        (parents_count-1).to_i.times{|i| space+='&nbsp;&nbsp;&nbsp;&nbsp;'}
+        (parents_count-1).to_i.times{|i| space+='&nbsp;'*4}
       end
       space
     end
 
     def find_by_name(name_tmp)
-      if !self.name.empty? && self.full_name == name_tmp
-        self.parent 
-      else
-        false
-      end
+      self.parent if !self.name.empty? && self.full_name == name_tmp
     end
 
     def parents_count
@@ -72,7 +68,6 @@ module NestedSelect
 
     def branches
       @branches = @items[1..@items.size]
-      @branches
     end
 
     def add_item(item)
@@ -86,8 +81,9 @@ module NestedSelect
     end
 
     def find_item(tmp_name)
+      tmp_name = tmp_name.to_s.strip
       @items.each do |item|
-        return item if item.name == tmp_name.to_s.strip
+        return item if item.name == tmp_name
       end
     end
 
@@ -102,11 +98,9 @@ module NestedSelect
     def find_by_name(name_tmp)
       existed_item = nil
       existed_items = []
-    
-      if self.full_name == name_tmp
-        return self
-      end
-      
+
+      return self if self.full_name == name_tmp
+
       @items.each do |item|
         existed_item = item.find_by_name(name_tmp)
         existed_items << existed_item if existed_item
