@@ -43,4 +43,4 @@ Contributing
 
 if you find a bug or have something to add, please do
 
-[dropdown_screenshot]: http://imgur.com/OylKc "Drop Down Example"
+[dropdown_screenshot]: http://i.imgur.com/OylKc.png "Drop Down Example"
