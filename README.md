@@ -36,9 +36,11 @@ Pass it as a parameter and get options for drop down as an output
 
 As a result you will see a drop down like this:
 
-![generated drop down][http://imgur.com/OylKc]
+![generated drop down][dropdown_screenshot]
 
 Contributing
 ============
 
 if you find a bug or have something to add, please do
+
+[dropdown_screenshot]: http://imgur.com/OylKc "Drop Down Example"
