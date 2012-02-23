@@ -35,7 +35,8 @@ Pass it as a parameter and get options for drop down as an output
 	    nested_list.html_options
 
 As a result you will see a drop down like this:
-<img src="http://imgur.com/OylKc" alt="generated drop down" />	    
+
+![generated drop down](http://imgur.com/OylKc)
 
 Contributing
 ============
