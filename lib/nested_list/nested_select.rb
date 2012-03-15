@@ -1,6 +1,11 @@
 module NestedSelect
+  def parameterized_name(names)
+    names.map! { |name| name.to_s.strip.downcase }
+    names.join("-")
+  end
 
   class Item
+    include NestedSelect
     attr_accessor :name, :parent, :id
     @@use_spaces = true
     def initialize(name, id)
@@ -12,13 +17,17 @@ module NestedSelect
     def spaces
       space = ""
       if @@use_spaces
-        (parents_count-1).to_i.times{|i| space+='&nbsp;'*4}
+        (parents_count-1).to_i.times{|i| space+='&nbsp;&nbsp;&nbsp;&nbsp;'}
       end
       space
     end
 
     def find_by_name(name_tmp)
-      self.parent if !self.name.empty? && self.full_name == name_tmp
+      if !self.name.empty? && self.full_name == name_tmp
+        self.parent
+      else
+        false
+      end
     end
 
     def parents_count
@@ -44,9 +53,9 @@ module NestedSelect
         end
         # Remove last general for all element
         full_name.pop
-        full_name_str = full_name.reverse!.join(" ")
+        full_name_str = parameterized_name(full_name.reverse!)
       end
-      @full_name_str ||= full_name_str.parameterize
+      @full_name_str ||= full_name_str
     end
 
     def wrap
@@ -82,24 +91,22 @@ module NestedSelect
 
     def find_item(tmp_name)
       tmp_name = tmp_name.to_s.strip
-      @items.each do |item|
-        return item if item.name == tmp_name
+      @items.find do |item|
+        item.name == tmp_name
       end
     end
 
      def items_count
-      count = 0
-      @items.each do |item|
-        count += item.items_count
-      end
-      count
+       @items.inject(0){|acc,i| acc+i.items_count}
     end
 
     def find_by_name(name_tmp)
       existed_item = nil
       existed_items = []
 
-      return self if self.full_name == name_tmp
+      if self.full_name == name_tmp
+        return self
+      end
 
       @items.each do |item|
         existed_item = item.find_by_name(name_tmp)

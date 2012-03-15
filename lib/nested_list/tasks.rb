@@ -8,11 +8,15 @@ module NestedList
       template = ERB.new <<-EOF
       <!DOCTYPE html>
       <html>
-      <head>
+       <head>
         <title>Nested List</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       </head>
       <body>
-        <select><%= nested_options_example %></select>
+        Nested categories list:<br/>
+        <select><%= nested_options_example %></select><br/><br/>
+        Can be used for other language:<br/>
+        <select><%= nested_options_example_ru %></select>
       </body>
       </html>
       EOF
