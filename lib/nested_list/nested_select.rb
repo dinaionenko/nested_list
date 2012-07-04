@@ -92,7 +92,7 @@ module NestedSelect
     def find_item(tmp_name)
       tmp_name = tmp_name.to_s.strip
       @items.find do |item|
-        item.name == tmp_name
+        item.name.downcase == tmp_name.downcase
       end
     end
 
