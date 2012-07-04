@@ -11,3 +11,9 @@ desc "Create a test html page to demonstrate nested list use."
 task :nested_list_html_page do
   generate_html
 end
+
+require 'rake/testtask'
+Rake::TestTask.new do |t|
+  t.libs << "test"
+  t.test_files = FileList['test/tc_*.rb']
+end
